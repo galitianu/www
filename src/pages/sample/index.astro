@@ -1,0 +1,18 @@
+---
+// src/pages/sample/index.astro
+import Layout from '@/layouts/Layout.astro';
+import type { PageMeta } from '@/lib/constants';
+
+const meta: PageMeta = {
+  title: 'Sample Page',
+  description: 'Example sub-page for galitianu.com',
+  ogType: 'article',
+};
+---
+
+<Layout {...meta}>
+  <main class='container mx-auto py-8'>
+    <h1 class='mb-4 text-3xl font-bold'>Sample Page</h1>
+    <!-- Content -->
+  </main>
+</Layout>

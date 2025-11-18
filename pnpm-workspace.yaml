@@ -1,0 +1,10 @@
+ignoredBuiltDependencies:
+  - '@parcel/watcher'
+  - sharp
+
+onlyBuiltDependencies:
+  - '@tailwindcss/oxide'
+  - esbuild
+
+overrides:
+  glob@>=10.3.7 <=11.0.3: '>=11.1.0'

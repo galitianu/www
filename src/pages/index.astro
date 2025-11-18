@@ -1,0 +1,16 @@
+---
+// src/pages/index.astro
+import Welcome from '@/components/Welcome.astro';
+import Layout from '@/layouts/Layout.astro';
+import type { PageMeta } from '@/lib/constants';
+
+const meta: PageMeta = {
+  title: 'galitianu.com',
+  description: 'Modern Astro, TailwindCSS, and shadcn/ui foundations for galitianu.com',
+  ogType: 'website',
+};
+---
+
+<Layout {...meta}>
+  <Welcome />
+</Layout>
