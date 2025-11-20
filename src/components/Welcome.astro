@@ -1,8 +1,75 @@
 ---
 import portrait from '@/assets/portrait.jpg';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import ContentCard from '@/components/ContentCard.astro';
+import ListCard, { type ListItem } from '@/components/ListCard.astro';
 import { Circle } from 'lucide-react';
-import { Badge } from './ui/badge';
+
+const circle = `<svg fill="currentColor" class="inline-block h-2 w-2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg>`;
+
+const experienceData: ListItem[] = [
+  {
+    title: 'Sanacorp Pharmahandel GmbH',
+    name: `Remote Contract ${circle} Munich, Germany ${circle} Oct 2024 - present`,
+    content: `Contributing to the development and modernization of an enterprise procurement and supply-chain management system responsible for demand forecasting, inventory control, inter-location stock transfers, and automated order generation with suppliers. Supporting the transition to a new, more robust platform with improved functionality, maintainability, and overall software quality.`,
+    labels: ['Java', 'Wildfly', 'Oracle DB', 'Redwood', 'Java FX', 'Java Swing', 'Gradle'],
+  },
+  {
+    title: 'DATA SWEEP',
+    name: `Co-founder ${circle} Cluj-Napoca, Romania ${circle} Mar 2024 - present`,
+    content: `Worked on validating the business model through multiple startup accelerator programs and winning some of them throughout the past year; developed the front-end of our platform using the newest technologies`,
+    labels: ['Next.js', 'Typescript', 'Tailwind', 'Knowledge Graphs', 'Semantic Search', 'Keycloak', 'DevOps'],
+  },
+  {
+    title: 'Ciconia Systems GmbH',
+    name: `Remote ${circle} Mannheim, Germany ${circle} Feb 2023 - present`,
+    content: `Worked on the implementation of <a href='https://vergabepilot.ai' class='font-medium  hover:underline' target='_blank'>Vergabepilot</a>, a project that crawls the web for public tenders, ranks them based on the similarity to a predefined list of tenders, then extracts relevant information from the tender's published documents.`,
+    labels: ['Java', 'Spring Boot', 'React Native', 'Next.js', 'Typescript', 'Tailwind', 'Keycloak'],
+  },
+];
+
+const educationData: ListItem[] = [
+  {
+    title: 'Software Engineering M.Sc.',
+    name: `University of Bucharest ${circle} Oct 2024 - Jun 2026`,
+    content: `Contributing to the development and modernization of an enterprise procurement and supply-chain management system responsible for demand forecasting, inventory control, inter-location stock transfers, and automated order generation with suppliers. Supporting the transition to a new, more robust platform with improved functionality, maintainability, and overall software quality.`,
+  },
+  {
+    title: 'Computer Science B.Sc.',
+    name: `TU Berlin & Babeș-Bolyai University, Cluj-Napoca ${circle} Sep 2021 - Jun 2024`,
+    content: `Worked on validating the business model through multiple startup accelerator programs and winning some of them throughout the past year; developed the front-end of our platform using the newest technologies`,
+  },
+  {
+    title: 'AWS Developer Associate',
+    name: `Issued by Amazon Web Services ${circle} Jul 2023`,
+  },
+  {
+    title: 'Deutsches Sprachdiplom (C1)',
+    name: `Issued by Auswärtiges Amt ${circle} Mar 2021`,
+  },
+  {
+    title: 'Cambridge English: Advanced (C1)',
+    name: `Issued by Cambridge English ${circle} Jun 2019`,
+  },
+];
+
+const languagesData: ListItem[] = [
+  {
+    title: 'German',
+    name: 'Full professional proficiency - CEFR level C1',
+  },
+  {
+    title: 'English',
+    name: 'Full professional proficiency - CEFR level C1',
+  },
+  {
+    title: 'Romanian',
+    name: 'Native speaker',
+  },
+  {
+    title: 'French',
+    name: 'Un peu',
+  },
+];
 ---
 
 <div
@@ -28,249 +95,39 @@ import { Badge } from './ui/badge';
   </div>
 
   <div class='w-full space-y-12 md:grid md:grid-cols-[auto_1fr_20vw] md:space-y-0 md:gap-x-4 md:gap-y-12'>
-    <div class='w-full md:col-span-full md:grid md:grid-cols-subgrid'>
-      <div class='w-full md:col-span-2 md:grid md:grid-cols-subgrid'>
-        <Card className='md:col-span-full md:grid md:grid-cols-subgrid'>
-          <CardHeader className='md:col-span-full'>
-            <CardTitle><span>About</span></CardTitle>
-          </CardHeader>
-          <CardContent className='md:col-span-full'>
-            <span
-              >Software Engineer with 3 years of experience designing, building and operating scalable desktop and web
-              applications for startups and enterprise clients.</span
-            >
-          </CardContent>
-        </Card>
-      </div>
-      <div class='md:col-start-3'></div>
-    </div>
-    <div class='w-full md:col-span-full md:grid md:grid-cols-subgrid'>
-      <div class='w-full md:col-span-2 md:grid md:grid-cols-subgrid'>
-        <Card className='md:col-span-full md:grid md:grid-cols-subgrid'>
-          <CardHeader className='md:col-span-full'>
-            <CardTitle><span>Experience</span></CardTitle>
-          </CardHeader>
-          <CardContent className='md:col-span-full md:grid md:grid-cols-subgrid md:px-0'>
-            <div class='gap-4 max-md:space-y-4 md:col-span-full md:grid md:grid-cols-subgrid'>
-              <div class='font-semibold md:pl-6 md:text-right'>Sanacorp Pharmahandel GmbH</div>
-              <div class='space-y-2 md:pr-6'>
-                <div class='font-medium'>
-                  Remote Contract <Circle fill='currentColor' className='inline-block h-2 w-2' /> Munich, Germany <Circle
-                    fill='currentColor'
-                    className='inline-block h-2 w-2'
-                  /> Oct 2024 - present
-                </div>
-                <div>
-                  Contributing to the development and modernization of an enterprise procurement and supply-chain
-                  management system responsible for demand forecasting, inventory control, inter-location stock
-                  transfers, and automated order generation with suppliers. Supporting the transition to a new, more
-                  robust platform with improved functionality, maintainability, and overall software quality.
-                </div>
-                <div class='flex flex-wrap gap-2'>
-                  <Badge variant='outline'>Java</Badge>
-                  <Badge variant='outline'>Wildfly</Badge>
-                  <Badge variant='outline'>Oracle DB</Badge>
-                  <Badge variant='outline'>Redwood</Badge>
-                  <Badge variant='outline'>Java FX</Badge>
-                  <Badge variant='outline'>Java Swing</Badge>
-                  <Badge variant='outline'>Gradle</Badge>
-                </div>
-              </div>
-              <div class='font-semibold md:pl-6 md:text-right'>DATA SWEEP</div>
-              <div class='space-y-2 md:pr-6'>
-                <div class='font-medium'>
-                  Co-founder <Circle fill='currentColor' className='inline-block h-2 w-2' /> Cluj-Napoca, Romania <Circle
-                    fill='currentColor'
-                    className='inline-block h-2 w-2'
-                  /> Mar 2024 - present
-                </div>
-                <ul>
-                  <li>
-                    Worked on validating the business model through multiple startup accelerator programs and winning
-                    some of them throughout the past year; developed the front-end of our platform using the newest
-                    technologies
-                  </li>
-                </ul>
-                <div class='flex flex-wrap gap-2'>
-                  <Badge variant='outline'>Next.js</Badge>
-                  <Badge variant='outline'>Typescript</Badge>
-                  <Badge variant='outline'>Tailwind</Badge>
-                  <Badge variant='outline'>Knowledge Graphs</Badge>
-                  <Badge variant='outline'>Semantic Search</Badge>
-                  <Badge variant='outline'>Keycloak</Badge>
-                  <Badge variant='outline'>DevOps</Badge>
-                </div>
-              </div>
-              <div class='font-semibold md:pl-6 md:text-right'>Ciconia Systems GmbH</div>
-              <div class='space-y-2 md:pr-6'>
-                <div class='font-medium'>
-                  Remote <Circle fill='currentColor' className='inline-block h-2 w-2' /> Mannheim, Germany <Circle
-                    fill='currentColor'
-                    className='inline-block h-2 w-2'
-                  /> Feb 2023 - present
-                </div>
-                <ul>
-                  <li>
-                    Worked on the implementation of <a
-                      href='https://vergabepilot.ai'
-                      class='font-medium hover:underline'
-                      target='_blank'>Vergabepilot</a
-                    >, a project that crawls the web for public tenders, ranks them based on the similarity to a
-                    predefined list of tenders, then extracts relevant information from the tender's published
-                    documents.
-                  </li>
-                </ul>
-                <div class='flex flex-wrap gap-2'>
-                  <Badge variant='outline'>Java</Badge>
-                  <Badge variant='outline'>Spring Boot</Badge>
-                  <Badge variant='outline'>React Native</Badge>
-                  <Badge variant='outline'>Next.js</Badge>
-                  <Badge variant='outline'>Typescript</Badge>
-                  <Badge variant='outline'>Tailwind</Badge>
-                  <Badge variant='outline'>Keycloak</Badge>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-      <div class='md:col-start-3'></div>
-    </div>
+    <ContentCard title='About'>
+      <span
+        >Software Engineer with 3 years of experience designing, building and operating scalable desktop and web
+        applications for startups and enterprise clients.</span
+      >
+    </ContentCard>
 
-    <div class='w-full md:col-span-full md:grid md:grid-cols-subgrid'>
-      <div class='w-full md:col-span-2 md:grid md:grid-cols-subgrid'>
-        <Card className='md:col-span-full md:grid md:grid-cols-subgrid'>
-          <CardHeader className='md:col-span-full'>
-            <CardTitle><span>Education & Certifications</span></CardTitle>
-          </CardHeader>
-          <CardContent className='md:col-span-full md:grid md:grid-cols-subgrid md:px-0'>
-            <div class='gap-4 max-md:space-y-4 md:col-span-full md:grid md:grid-cols-subgrid'>
-              <div class='font-semibold md:pl-6 md:text-right'>Software Engineering M.Sc.</div>
-              <div class='space-y-2 md:pr-6'>
-                <div class='font-medium'>
-                  University of Bucharest <Circle fill='currentColor' className='inline-block h-2 w-2' /> Oct 2024 - Jun
-                  2026
-                </div>
-                <div>
-                  Contributing to the development and modernization of an enterprise procurement and supply-chain
-                  management system responsible for demand forecasting, inventory control, inter-location stock
-                  transfers, and automated order generation with suppliers. Supporting the transition to a new, more
-                  robust platform with improved functionality, maintainability, and overall software quality.
-                </div>
-              </div>
-              <div class='font-semibold md:pl-6 md:text-right'>Computer Science B.Sc.</div>
-              <div class='space-y-2 md:pr-6'>
-                <div class='font-medium'>
-                  TU Berlin & Babeș-Bolyai University, Cluj-Napoca <Circle
-                    fill='currentColor'
-                    className='inline-block h-2 w-2'
-                  /> Sep 2021 - Jun 2024
-                </div>
-                <ul>
-                  <li>
-                    Worked on validating the business model through multiple startup accelerator programs and winning
-                    some of them throughout the past year; developed the front-end of our platform using the newest
-                    technologies
-                  </li>
-                </ul>
-              </div>
-              <div class='font-semibold md:pl-6 md:text-right'>AWS Developer Associate</div>
-              <div class='space-y-2 md:pr-6'>
-                <div class='font-medium'>
-                  Issued by Amazon Web Services <Circle fill='currentColor' className='inline-block h-2 w-2' /> Jul 2023
-                </div>
-              </div>
-              <div class='font-semibold md:pl-6 md:text-right'>Deutsches Sprachdiplom (C1)</div>
-              <div class='space-y-2 md:pr-6'>
-                <div class='font-medium'>
-                  Issued by Auswärtiges Amt <Circle fill='currentColor' className='inline-block h-2 w-2' /> Mar 2021
-                </div>
-              </div>
-              <div class='font-semibold md:pl-6 md:text-right'>Cambridge English: Advanced (C1)</div>
-              <div class='space-y-2 md:pr-6'>
-                <div class='font-medium'>
-                  Issued by Cambridge English <Circle fill='currentColor' className='inline-block h-2 w-2' /> Jun 2019
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-      <div class='md:col-start-3'></div>
-    </div>
+    <ListCard title='Experience' items={experienceData} />
 
-    <div class='w-full md:col-span-full md:grid md:grid-cols-subgrid'>
-      <div class='w-full md:col-span-2 md:grid md:grid-cols-subgrid'>
-        <Card className='md:col-span-full md:grid md:grid-cols-subgrid'>
-          <CardHeader className='md:col-span-full'>
-            <CardTitle><span>Languages</span></CardTitle>
-          </CardHeader>
-          <CardContent className='md:col-span-full md:grid md:grid-cols-subgrid md:px-0'>
-            <div class='gap-4 max-md:space-y-4 md:col-span-full md:grid md:grid-cols-subgrid'>
-              <div class='font-semibold md:pl-6 md:text-right'>German</div>
-              <div class='space-y-2 md:pr-6'>
-                <div>Full professional proficiency - CEFR level C1</div>
-              </div>
-              <div class='font-semibold md:pl-6 md:text-right'>English</div>
-              <div class='space-y-2 md:pr-6'>
-                <div>Full professional proficiency - CEFR level C1</div>
-              </div>
-              <div class='font-semibold md:pl-6 md:text-right'>Romanian</div>
-              <div class='space-y-2 md:pr-6'>
-                <div>Native speaker</div>
-              </div>
-              <div class='font-semibold md:pl-6 md:text-right'>French</div>
-              <div class='space-y-2 md:pr-6'>
-                <div>Un peu</div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-      <div class='md:col-start-3'></div>
-    </div>
+    <ListCard title='Education & Certifications' items={educationData} />
 
-    <div class='w-full md:col-span-full md:grid md:grid-cols-subgrid'>
-      <div class='w-full md:col-span-2 md:grid md:grid-cols-subgrid'>
-        <Card className='md:col-span-full md:grid md:grid-cols-subgrid'>
-          <CardHeader className='md:col-span-full'>
-            <CardTitle><span>Projects</span></CardTitle>
-          </CardHeader>
-          <CardContent className='md:col-span-full'>
-            <span
-              >Full-Stack Engineer with 3 years of experience designing, building and operating scalable web
-              applications and system integrations for FinTech and enterprise clients.</span
-            >
-          </CardContent>
-        </Card>
-      </div>
-      <div class='md:col-start-3'></div>
-    </div>
+    <ListCard title='Languages' items={languagesData} />
 
-    <div class='w-full md:col-span-full md:grid md:grid-cols-subgrid'>
-      <div class='w-full md:col-span-2 md:grid md:grid-cols-subgrid'>
-        <Card className='md:col-span-full md:grid md:grid-cols-subgrid'>
-          <CardHeader className='md:col-span-full'>
-            <CardTitle><span>Links</span></CardTitle>
-          </CardHeader>
-          <CardContent className='md:col-span-full md:grid md:grid-cols-subgrid md:px-0'>
-            <div class='md:col-span-full md:mb-4 md:px-6'>
-              I prefer being contacted by email. <div class='flex gap-2'>
-                <a class='underline' href='mailto:andrei@galitianu.com'>Email</a>
-                <a class='underline' href='https://www.linkedin.com/in/galitianu' target='_blank'>LinkedIn</a>
-                <a class='underline' href='https://github.com/galitianu' target='_blank'>GitHub</a>
-              </div><br />
-              On a more personal note: <div class='flex gap-2'>
-                <a class='underline' href='https://letterboxd.com/galitianu/films/' target='_blank'>Letterboxd</a>
-                <a class='underline' href='https://www.discogs.com/user/galitianu/collection' target='_blank'>Discogs</a
-                >
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+    <ContentCard title='Projects'>
+      <span
+        >Full-Stack Engineer with 3 years of experience designing, building and operating scalable web applications and
+        system integrations for FinTech and enterprise clients.</span
+      >
+    </ContentCard>
+
+    <ContentCard title='Links'>
+      <div class='md:col-span-full'>
+        I prefer being contacted by email. <div class='flex gap-2'>
+          <a class='underline' href='mailto:andrei@galitianu.com'>Email</a>
+          <a class='underline' href='https://www.linkedin.com/in/galitianu' target='_blank'>LinkedIn</a>
+          <a class='underline' href='https://github.com/galitianu' target='_blank'>GitHub</a>
+        </div><br />
+        On a more personal note: <div class='flex gap-2'>
+          <a class='underline' href='https://letterboxd.com/galitianu/films/' target='_blank'>Letterboxd</a>
+          <a class='underline' href='https://www.discogs.com/user/galitianu/collection' target='_blank'>Discogs</a>
+        </div>
       </div>
-      <div class='md:col-start-3'></div>
-    </div>
+    </ContentCard>
   </div>
 
   Let's create somethin

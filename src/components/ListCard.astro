@@ -1,0 +1,41 @@
+---
+import { Badge } from '@/components/ui/badge';
+import ContentCard from './ContentCard.astro';
+
+export interface ListItem {
+  title: string;
+  name: string;
+  content?: string;
+  labels?: string[];
+}
+
+interface Props {
+  title: string;
+  items: ListItem[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<ContentCard title={title} className='md:grid md:grid-cols-subgrid md:px-0'>
+  <div class='gap-4 max-md:space-y-8 md:col-span-full md:grid md:grid-cols-subgrid'>
+    {
+      items.map(item => (
+        <div class='flex flex-col gap-2 md:contents'>
+          <div class='font-semibold md:pl-6 md:text-right'>{item.title}</div>
+          <div class='space-y-2 md:pr-6'>
+            <div class='font-medium' set:html={item.name} />
+            {item.content && <div set:html={item.content} />}
+            {item.labels && item.labels.length > 0 && (
+              <div class='flex flex-wrap gap-2'>
+                {item.labels.map(label => (
+                  <Badge variant='outline'>{label}</Badge>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</ContentCard>

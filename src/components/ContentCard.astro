@@ -1,0 +1,25 @@
+---
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
+
+interface Props {
+  title: string;
+  className?: string;
+}
+
+const { title, className } = Astro.props;
+---
+
+<div class='w-full md:col-span-full md:grid md:grid-cols-subgrid'>
+  <div class='w-full md:col-span-2 md:grid md:grid-cols-subgrid'>
+    <Card className='md:col-span-full md:grid md:grid-cols-subgrid'>
+      <CardHeader className='md:col-span-full'>
+        <CardTitle><span>{title}</span></CardTitle>
+      </CardHeader>
+      <CardContent className={cn('md:col-span-full', className)}>
+        <slot />
+      </CardContent>
+    </Card>
+  </div>
+  <div class='md:col-start-3'></div>
+</div>
