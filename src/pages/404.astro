@@ -1,0 +1,16 @@
+---
+import { Button } from '@/components/ui/button';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title='404 - Page Not Found'>
+  <main class='grid place-content-center text-center' style='min-height: calc(100vh - 4rem)'>
+    <div class='my-auto space-y-2'>
+      <h1 class='text-6xl font-bold'>404</h1>
+      <p class='text-muted-foreground text-2xl'>Page not found</p>
+      <a href='/'>
+        <Button>Go back home</Button>
+      </a>
+    </div>
+  </main>
+</Layout>
