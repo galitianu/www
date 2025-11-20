@@ -14,7 +14,7 @@ const { title, className } = Astro.props;
   <div class='w-full md:col-span-2 md:grid md:grid-cols-subgrid'>
     <Card className='md:col-span-full md:grid md:grid-cols-subgrid'>
       <CardHeader className='md:col-span-full'>
-        <CardTitle><span>{title}</span></CardTitle>
+        <CardTitle><span set:html={title} /></CardTitle>
       </CardHeader>
       <CardContent className={cn('md:col-span-full', className)}>
         <slot />

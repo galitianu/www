@@ -4,7 +4,7 @@ import ContentCard from '@/components/ContentCard.astro';
 import ListCard, { type ListItem } from '@/components/ListCard.astro';
 import { Circle } from 'lucide-react';
 
-const circle = `<svg fill="currentColor" class="inline-block h-2 w-2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg>`;
+const circle = `<svg fill="currentColor" class="inline-block h-2 w-2 align-middle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg>`;
 
 const experienceData: ListItem[] = [
   {
@@ -70,6 +70,39 @@ const languagesData: ListItem[] = [
     name: 'Un peu',
   },
 ];
+
+const projectsData: ListItem[] = [
+  {
+    title: 'Fitranker',
+    content: `Rank CVs for a job position based on the similarity to the job description. Early work in embeddings and semantic search. Next.js based frontend with a Java Spring backend `,
+    labels: [
+      'Java',
+      'Spring Boot',
+      'Milvus Vector DB',
+      'OpenAI',
+      'Next.js',
+      'Typescript',
+      'Shadcn UI',
+      'Tailwind',
+      'Keycloak',
+    ],
+  },
+  {
+    title: '<a href="https://github.com/galitianu/www" target="_blank" class="hover:underline">This website</a>',
+    content: `My first foray into Astro, a framework for building fast static websites. Great experience, will continue to use it for my future projects.`,
+    labels: ['Astro', 'Typescript', 'Shadcn UI', 'Tailwind'],
+  },
+  {
+    title:
+      '<a href="https://www.uni-mannheim.de/ines/lehre/european-master-team-project/projekt-lunatic-driving-ai/" target="_blank" class="hover:underline">Lunatic Driver AI</a>',
+    content: `Simulated cars driving on the highway in a normal or lunatic manner. The AI was based on a comprehensive set of rules that allow customizable driving behavior.`,
+    labels: ['CARLA Simulator', 'Python', 'TensorFlow', 'NumPy', 'Pandas'],
+  },
+  {
+    title: '',
+    content: `<a class="underline" href="/projects">See all</a>`,
+  },
+];
 ---
 
 <div
@@ -108,12 +141,7 @@ const languagesData: ListItem[] = [
 
     <ListCard title='Languages' items={languagesData} />
 
-    <ContentCard title='Projects'>
-      <span
-        >Full-Stack Engineer with 3 years of experience designing, building and operating scalable web applications and
-        system integrations for FinTech and enterprise clients.</span
-      >
-    </ContentCard>
+    <ListCard title='Projects' items={projectsData} />
 
     <ContentCard title='Links'>
       <div class='md:col-span-full'>
