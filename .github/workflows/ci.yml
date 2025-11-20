@@ -194,7 +194,7 @@ jobs:
         run: pnpm build
         env:
           NODE_ENV: production
-          PUBLIC_BASE_URL: /galitianu.com/
+          PUBLIC_BASE_URL: /www/
 
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
