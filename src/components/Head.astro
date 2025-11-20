@@ -16,7 +16,7 @@ const {
 
 // Generate canonical URLs
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || SITE_CONFIG.url);
-const ogImageURL = new URL(ogImage, Astro.site || SITE_CONFIG.url);
+const ogImageURL = new URL(ogImage!, Astro.site || SITE_CONFIG.url);
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
@@ -62,20 +62,21 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
   {/* Slot for page-level head elements */}
   <slot />
 
-  <!-- Dark-mode detection -->
+  <!-- Theme preference - must run before page render to prevent flash -->
   <script is:inline>
-    // Detect the current system preference
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.classList.add('dark');
-    }
-
-    // Listen for changes to the system preference
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-      if (e.matches) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    });
+    (function () {
+      const getThemePreference = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          const savedTheme = localStorage.getItem('theme');
+          if (savedTheme === 'system') {
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          return savedTheme;
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      };
+      const isDark = getThemePreference() === 'dark';
+      document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+    })();
   </script>
 </head>

@@ -1,7 +1,8 @@
 ---
 import portrait from '@/assets/portrait.jpg';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Item, ItemContent, ItemTitle } from './ui/item';
+import { Circle } from 'lucide-react';
+import { Badge } from './ui/badge';
 ---
 
 <div
@@ -12,7 +13,8 @@ import { Item, ItemContent, ItemTitle } from './ui/item';
       <div class='w-full space-y-4 text-center md:text-right'>
         <h1 class='text-8xl font-bold'>Andrei<br />Galitianu</h1>
         <span class='text-right text-xl font-semibold'
-          >Software Engineer - Java / Spring Boot x Next.js x Integration</span
+          >Software Engineer - Java / Spring Boot <Circle fill='currentColor' className='inline-block h-2 w-2' /> Next.js
+          <Circle fill='currentColor' className='inline-block h-2 w-2' /> Integration</span
         >
       </div>
       <div class='my-auto flex items-center justify-center'>
@@ -25,8 +27,8 @@ import { Item, ItemContent, ItemTitle } from './ui/item';
     </div>
   </div>
 
-  <div class='flex w-full'>
-    <div class='max-w-xl'>
+  <div class='w-full grid-cols-[auto_20vw] md:grid'>
+    <div class='w-full'>
       <Card>
         <CardHeader>
           <CardTitle><span>About</span></CardTitle>
@@ -39,52 +41,125 @@ import { Item, ItemContent, ItemTitle } from './ui/item';
         </CardContent>
       </Card>
     </div>
+    <div></div>
   </div>
 
-  <div class='flex w-full'>
-    <div class='max-w-xl'>
+  <div class='w-full grid-cols-[auto_20vw] md:grid'>
+    <div class='w-full'>
       <Card>
         <CardHeader>
           <CardTitle><span>Experience</span></CardTitle>
         </CardHeader>
         <CardContent>
-          <span
-            >Full-Stack Engineer with 4+ years of experience designing, building and operating scalable web applications
-            and system integrations for FinTech and enterprise clients.</span
-          >
+          <div class='grid-cols-[auto_1fr] gap-4 max-md:space-y-4 md:grid'>
+            <div class='font-semibold md:text-right'>Sanacorp Pharmahandel GmbH</div>
+            <div class='space-y-2'>
+              <div class='font-medium'>
+                Remote Contract <Circle fill='currentColor' className='inline-block h-2 w-2' /> Munich, Germany <Circle
+                  fill='currentColor'
+                  className='inline-block h-2 w-2'
+                /> Oct 2024 - present
+              </div>
+              <div>
+                Contributing to the development and modernization of an enterprise procurement and supply-chain
+                management system responsible for demand forecasting, inventory control, inter-location stock transfers,
+                and automated order generation with suppliers. Supporting the transition to a new, more robust platform
+                with improved functionality, maintainability, and overall software quality.
+              </div>
+              <div class='flex flex-wrap gap-2'>
+                <Badge variant='outline'>Java</Badge>
+                <Badge variant='outline'>Wildfly</Badge>
+                <Badge variant='outline'>Oracle DB</Badge>
+                <Badge variant='outline'>Redwood</Badge>
+                <Badge variant='outline'>Java FX</Badge>
+                <Badge variant='outline'>Java Swing</Badge>
+                <Badge variant='outline'>Gradle</Badge>
+              </div>
+            </div>
+            <div class='font-semibold md:text-right'>DATA SWEEP</div>
+            <div class='space-y-2'>
+              <div class='font-medium'>
+                Co-founder <Circle fill='currentColor' className='inline-block h-2 w-2' /> Cluj-Napoca, Romania <Circle
+                  fill='currentColor'
+                  className='inline-block h-2 w-2'
+                /> Mar 2024 - present
+              </div>
+              <ul>
+                <li>
+                  Worked on validating the business model through multiple startup accelerator programs and winning some
+                  of them throughout the past year; developed the front-end of our platform using the newest
+                  technologies
+                </li>
+              </ul>
+              <div class='flex flex-wrap gap-2'>
+                <Badge variant='outline'>Next.js</Badge>
+                <Badge variant='outline'>Typescript</Badge>
+                <Badge variant='outline'>Tailwind</Badge>
+                <Badge variant='outline'>Knowledge Graphs</Badge>
+                <Badge variant='outline'>Semantic Search</Badge>
+                <Badge variant='outline'>Keycloak</Badge>
+                <Badge variant='outline'>DevOps</Badge>
+              </div>
+            </div>
+            <div class='font-semibold md:text-right'>Ciconia Systems GmbH</div>
+            <div class='space-y-2'>
+              <div class='font-medium'>
+                Remote <Circle fill='currentColor' className='inline-block h-2 w-2' /> Mannheim, Germany <Circle
+                  fill='currentColor'
+                  className='inline-block h-2 w-2'
+                /> Feb 2023 - present
+              </div>
+              <ul>
+                <li>
+                  Worked on the implementation of <a
+                    href='https://vergabepilot.ai'
+                    class='font-medium hover:underline'
+                    target='_blank'>Vergabepilot</a
+                  >, a project that crawls the web for public tenders, ranks them based on the similarity to a
+                  predefined list of tenders, then extracts relevant information from the tender's published documents.
+                </li>
+              </ul>
+              <div class='flex flex-wrap gap-2'>
+                <Badge variant='outline'>Java</Badge>
+                <Badge variant='outline'>Spring Boot</Badge>
+                <Badge variant='outline'>React Native</Badge>
+                <Badge variant='outline'>Next.js</Badge>
+                <Badge variant='outline'>Typescript</Badge>
+                <Badge variant='outline'>Tailwind</Badge>
+                <Badge variant='outline'>Keycloak</Badge>
+              </div>
+            </div>
+          </div>
         </CardContent>
       </Card>
     </div>
   </div>
 
-  <div class='flex w-full'>
-    <div class='flex w-full max-w-xl flex-wrap'>
-      <Card>
-        <CardHeader>
-          <CardTitle><span>Skills</span></CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Item variant='outline'>
-            <ItemContent>
-              <ItemTitle>Basic Item</ItemTitle>
-            </ItemContent>
-          </Item>
-        </CardContent>
-      </Card>
-    </div>
-  </div>
-
-  <div class='flex w-full'>
-    <div class='max-w-xl'>
+  <div class='w-full grid-cols-[auto_20vw] md:grid'>
+    <div class='w-full'>
       <Card>
         <CardHeader>
           <CardTitle><span>Languages</span></CardTitle>
         </CardHeader>
         <CardContent>
-          <span
-            >Full-Stack Engineer with 4+ years of experience designing, building and operating scalable web applications
-            and system integrations for FinTech and enterprise clients.</span
-          >
+          <div class='grid-cols-[15rem_1fr] gap-4 max-md:space-y-4 md:grid'>
+            <div class='font-semibold md:text-right'>German</div>
+            <div class='space-y-2'>
+              <div>Full professional proficiency - CEFR level C1</div>
+            </div>
+            <div class='font-semibold md:text-right'>English</div>
+            <div class='space-y-2'>
+              <div>Full professional proficiency - CEFR level C1</div>
+            </div>
+            <div class='font-semibold md:text-right'>Romanian</div>
+            <div class='space-y-2'>
+              <div>Native speaker</div>
+            </div>
+            <div class='font-semibold md:text-right'>French</div>
+            <div class='space-y-2'>
+              <div>Un peu</div>
+            </div>
+          </div>
         </CardContent>
       </Card>
     </div>
