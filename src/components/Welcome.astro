@@ -1,4 +1,5 @@
 ---
+import background from '@/assets/background.jpeg';
 import portrait from '@/assets/portrait.jpg';
 import ContentCard from '@/components/ContentCard.astro';
 import ListCard, { type ListItem } from '@/components/ListCard.astro';
@@ -104,60 +105,78 @@ const projectsData: ListItem[] = [
 ];
 ---
 
-<div
-  class='container mx-auto flex min-h-dvh flex-col items-center justify-center space-y-12 overflow-x-hidden px-4 pb-16'
->
-  <div class='flex h-[calc(100dvh-3.5rem)] w-full flex-col items-center justify-end space-y-4 pb-8'>
-    <div class='flex w-full grid-cols-1 flex-col-reverse gap-8 md:grid md:grid-cols-[3fr_2fr] md:gap-12'>
-      <div class='w-full space-y-4 text-center md:text-right'>
-        <h1 class='text-8xl font-bold'>Andrei<br />Galitianu</h1>
-        <span class='text-right text-xl font-semibold' set:html={`Software Engineer ${circle} Backend & Web Systems`} />
+<div class='relative min-h-dvh w-full'>
+  <img src={background.src} alt='Background' class='fixed inset-0 -z-10 h-full w-full object-cover' />
+
+  <div class='flex flex-col items-center justify-center space-y-12 overflow-x-hidden pb-16'>
+    <div
+      class='container mx-auto flex h-[calc(100dvh-3.5rem)] w-full flex-col items-center justify-end space-y-4 px-4 pb-8'
+    >
+      <div class='flex w-full grid-cols-1 flex-col-reverse gap-8 md:grid md:grid-cols-[3fr_2fr] md:gap-12'>
+        <div class='w-full space-y-4 text-center md:text-right'>
+          <h1 class='text-8xl font-bold'>Andrei<br />Galitianu</h1>
+          <span
+            class='text-right text-xl font-semibold'
+            set:html={`Software Engineer ${circle} Backend & Web Systems`}
+          />
+        </div>
+        <div class='my-auto flex items-center justify-center'>
+          <img
+            src={portrait.src}
+            alt='Andrei Galitianu'
+            class='aspect-square h-48 w-48 rounded-full object-cover md:h-60 md:w-60'
+          />
+        </div>
       </div>
-      <div class='my-auto flex items-center justify-center'>
-        <img
-          src={portrait.src}
-          alt='Andrei Galitianu'
-          class='aspect-square h-48 w-48 rounded-full object-cover md:h-60 md:w-60'
-        />
+    </div>
+
+    <div
+      class='via-background/30 to-background/30 -mt-32 w-full bg-gradient-to-b from-transparent pt-36 pb-12 backdrop-blur-xl'
+      style='mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 100%); -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 100%);'
+    >
+      <div
+        class='container mx-auto space-y-12 px-4 md:grid md:grid-cols-[auto_1fr_20vw] md:space-y-0 md:gap-x-4 md:gap-y-12'
+      >
+        <ContentCard title='About'>
+          <span
+            >Software Engineer with 3 years of experience building and operating scalable applications across enterprise
+            and startup environments. I specialize in Java, Spring Boot, and modern web technologies such as Next.js and
+            TypeScript. <br />I enjoy working at the intersection of backend systems, integrations, and clean UI
+            development. <br /><br />My work ranges from modernizing large-scale procurement and supply-chain systems to
+            building search and knowledge-driven products using semantic technologies. As a co-founder, I’ve also worked
+            hands-on in validating business ideas, delivering production-ready features, and shaping technical product
+            strategy. <br /><br />I'm passionate about reliable software, thoughtful architecture, and tools that make
+            people's lives easier.</span
+          >
+        </ContentCard>
+
+        <ListCard title='Experience' items={experienceData} />
+
+        <ListCard title='Education & Certifications' items={educationData} />
+
+        <ListCard title='Languages' items={languagesData} />
+
+        <ListCard title='Projects' items={projectsData} />
+
+        <ContentCard title='Links'>
+          <div class='md:col-span-full'>
+            I prefer being contacted by email. <div class='flex gap-2'>
+              <a class='underline' href='mailto:andrei@galitianu.com'>Email</a>
+              <a class='underline' href='https://www.linkedin.com/in/galitianu' target='_blank'>LinkedIn</a>
+              <a class='underline' href='https://github.com/galitianu' target='_blank'>GitHub</a>
+            </div><br />
+            On a more personal note: <div class='flex gap-2'>
+              <a class='underline' href='https://letterboxd.com/galitianu/films/' target='_blank'>Letterboxd</a>
+              <a class='underline' href='https://www.discogs.com/user/galitianu/collection' target='_blank'>Discogs</a>
+            </div>
+          </div>
+        </ContentCard>
+      </div>
+    </div>
+    <div class='bg-background/30 w-full py-12 backdrop-blur-xl'>
+      <div class='container mx-auto px-4 pb-[30vh] text-left text-8xl font-semibold'>
+        Let's create <br />something<br />remarkable!
       </div>
     </div>
   </div>
-
-  <div class='w-full space-y-12 md:grid md:grid-cols-[auto_1fr_20vw] md:space-y-0 md:gap-x-4 md:gap-y-12'>
-    <ContentCard title='About'>
-      <span
-        >Software Engineer with 3 years of experience building and operating scalable applications across enterprise and
-        startup environments. I specialize in Java, Spring Boot, and modern web technologies such as Next.js and
-        TypeScript. <br />I enjoy working at the intersection of backend systems, integrations, and clean UI
-        development. <br /><br />My work ranges from modernizing large-scale procurement and supply-chain systems to
-        building search and knowledge-driven products using semantic technologies. As a co-founder, I’ve also worked
-        hands-on in validating business ideas, delivering production-ready features, and shaping technical product
-        strategy. <br /><br />I'm passionate about reliable software, thoughtful architecture, and tools that make
-        people's lives easier.</span
-      >
-    </ContentCard>
-
-    <ListCard title='Experience' items={experienceData} />
-
-    <ListCard title='Education & Certifications' items={educationData} />
-
-    <ListCard title='Languages' items={languagesData} />
-
-    <ListCard title='Projects' items={projectsData} />
-
-    <ContentCard title='Links'>
-      <div class='md:col-span-full'>
-        I prefer being contacted by email. <div class='flex gap-2'>
-          <a class='underline' href='mailto:andrei@galitianu.com'>Email</a>
-          <a class='underline' href='https://www.linkedin.com/in/galitianu' target='_blank'>LinkedIn</a>
-          <a class='underline' href='https://github.com/galitianu' target='_blank'>GitHub</a>
-        </div><br />
-        On a more personal note: <div class='flex gap-2'>
-          <a class='underline' href='https://letterboxd.com/galitianu/films/' target='_blank'>Letterboxd</a>
-          <a class='underline' href='https://www.discogs.com/user/galitianu/collection' target='_blank'>Discogs</a>
-        </div>
-      </div>
-    </ContentCard>
-  </div>
-  <div class='h-[50vh] w-full text-left text-8xl font-semibold'>Let's create <br />something<br />remarkable!</div>
 </div>
