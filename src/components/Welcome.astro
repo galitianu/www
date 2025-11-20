@@ -2,7 +2,6 @@
 import portrait from '@/assets/portrait.jpg';
 import ContentCard from '@/components/ContentCard.astro';
 import ListCard, { type ListItem } from '@/components/ListCard.astro';
-import { Circle } from 'lucide-react';
 
 const circle = `<svg fill="currentColor" class="inline-block h-2 w-2 align-middle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg>`;
 
@@ -112,10 +111,7 @@ const projectsData: ListItem[] = [
     <div class='flex w-full grid-cols-1 flex-col-reverse gap-8 md:grid md:grid-cols-[3fr_2fr] md:gap-12'>
       <div class='w-full space-y-4 text-center md:text-right'>
         <h1 class='text-8xl font-bold'>Andrei<br />Galitianu</h1>
-        <span class='text-right text-xl font-semibold'
-          >Software Engineer - Java / Spring Boot <Circle fill='currentColor' className='inline-block h-2 w-2' /> Next.js
-          <Circle fill='currentColor' className='inline-block h-2 w-2' /> Integration</span
-        >
+        <span class='text-right text-xl font-semibold' set:html={`Software Engineer ${circle} Backend & Web Systems`} />
       </div>
       <div class='my-auto flex items-center justify-center'>
         <img
@@ -130,8 +126,14 @@ const projectsData: ListItem[] = [
   <div class='w-full space-y-12 md:grid md:grid-cols-[auto_1fr_20vw] md:space-y-0 md:gap-x-4 md:gap-y-12'>
     <ContentCard title='About'>
       <span
-        >Software Engineer with 3 years of experience designing, building and operating scalable desktop and web
-        applications for startups and enterprise clients.</span
+        >Software Engineer with 3 years of experience building and operating scalable applications across enterprise and
+        startup environments. I specialize in Java, Spring Boot, and modern web technologies such as Next.js and
+        TypeScript. <br />I enjoy working at the intersection of backend systems, integrations, and clean UI
+        development. <br /><br />My work ranges from modernizing large-scale procurement and supply-chain systems to
+        building search and knowledge-driven products using semantic technologies. As a co-founder, I’ve also worked
+        hands-on in validating business ideas, delivering production-ready features, and shaping technical product
+        strategy. <br /><br />I'm passionate about reliable software, thoughtful architecture, and tools that make
+        people's lives easier.</span
       >
     </ContentCard>
 
@@ -157,6 +159,5 @@ const projectsData: ListItem[] = [
       </div>
     </ContentCard>
   </div>
-
-  Let's create somethin
+  <div class='h-[50vh] w-full text-left text-8xl font-semibold'>Let's create <br />something<br />remarkable!</div>
 </div>
