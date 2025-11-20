@@ -8,14 +8,20 @@ import { Item, ItemContent, ItemTitle } from './ui/item';
   class='container mx-auto flex min-h-dvh flex-col items-center justify-center space-y-12 overflow-x-hidden px-4 pb-16'
 >
   <div class='flex h-[calc(100dvh-3.5rem)] w-full flex-col items-center justify-end space-y-4 pb-8'>
-    <div class='grid w-full grid-cols-[3fr_2fr] gap-12'>
-      <div class='w-full space-y-4 text-right'>
+    <div class='flex w-full grid-cols-1 flex-col-reverse gap-8 md:grid md:grid-cols-[3fr_2fr] md:gap-12'>
+      <div class='w-full space-y-4 text-center md:text-right'>
         <h1 class='text-8xl font-bold'>Andrei<br />Galitianu</h1>
         <span class='text-right text-xl font-semibold'
           >Software Engineer - Java / Spring Boot x Next.js x Integration</span
         >
       </div>
-      <img src={portrait.src} alt='Andrei Galitianu' class='my-auto h-60 w-60 rounded-full object-cover' />
+      <div class='my-auto flex items-center justify-center'>
+        <img
+          src={portrait.src}
+          alt='Andrei Galitianu'
+          class='aspect-square h-48 w-48 rounded-full object-cover md:h-60 md:w-60'
+        />
+      </div>
     </div>
   </div>
 
