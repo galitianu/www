@@ -2,6 +2,7 @@
 import portrait from '@/assets/portrait.jpg';
 import ContentCard from '@/components/ContentCard.astro';
 import ListCard, { type ListItem } from '@/components/ListCard.astro';
+import { SOCIAL_LINKS } from '../lib/constants';
 
 const circle = `<svg fill="currentColor" class="inline-block h-2 w-2 align-middle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg>`;
 
@@ -160,8 +161,8 @@ const projectsData: ListItem[] = [
       <div class='md:col-span-full'>
         I prefer being contacted by email. <div class='flex gap-2'>
           <a class='underline' href='mailto:andrei@galitianu.com'>Email</a>
-          <a class='underline' href='https://www.linkedin.com/in/galitianu' target='_blank'>LinkedIn</a>
-          <a class='underline' href='https://github.com/galitianu' target='_blank'>GitHub</a>
+          <a class='underline' href={SOCIAL_LINKS.linkedin} target='_blank'>LinkedIn</a>
+          <a class='underline' href={SOCIAL_LINKS.github} target='_blank'>GitHub</a>
         </div><br />
         On a more personal note: <div class='flex gap-2'>
           <a class='underline' href='https://letterboxd.com/galitianu/films/' target='_blank'>Letterboxd</a>
