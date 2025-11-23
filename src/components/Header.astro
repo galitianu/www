@@ -2,20 +2,26 @@
 import { Button } from './ui/button';
 import { ModeToggle } from './ui/mode-toggle';
 
-const openToNewOpportunities = true;
+const openToNewOpportunities = false;
 ---
 
 <header
-  class='bg-background/95 supports-backdrop-filter:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur'
+  class='bg-background/70 supports-backdrop-filter:bg-background/40 sticky top-4 z-50 mx-auto w-[calc(100%-2rem)] rounded-4xl border backdrop-blur-md'
 >
   <div class='header_wrap container mx-auto flex h-14 items-center px-4'>
     {
-      openToNewOpportunities && (
+      openToNewOpportunities ? (
         <div class='mr-4 flex flex-1'>
           <a href='/' class='flex items-center space-x-2'>
             <span class='sm:text-md truncate text-base font-semibold md:text-lg'>
               👋 &nbsp; Open to new opportunities
             </span>
+          </a>
+        </div>
+      ) : (
+        <div class='mr-4 flex flex-1'>
+          <a href='/' class='flex items-center space-x-2'>
+            <span class='sm:text-md truncate text-base font-semibold md:text-lg'>Andrei Galitianu</span>
           </a>
         </div>
       )
