@@ -74,7 +74,7 @@ export const getCurrentAssetsUrl = () => (ASSETS_URL.STATUS ? ASSETS_URL[getCurr
 
 // Global site metadata
 export const SITE_CONFIG = {
-  name: 'galitianu.com',
+  name: 'Andrei Galitianu',
   title: 'Andrei Galitianu — Software Engineer',
   description: 'Personal portfolio of Andrei Galitianu, a Software Engineer based in Europe.',
   url: getCurrentSiteUrl(),
