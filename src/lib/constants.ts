@@ -75,8 +75,8 @@ export const getCurrentAssetsUrl = () => (ASSETS_URL.STATUS ? ASSETS_URL[getCurr
 // Global site metadata
 export const SITE_CONFIG = {
   name: 'galitianu.com',
-  title: 'galitianu.com — Modern web foundations',
-  description: 'A modern Astro, TailwindCSS, and shadcn/ui starter for galitianu.com.',
+  title: 'Andrei Galitianu — Software Engineer',
+  description: 'Personal portfolio of Andrei Galitianu, a Software Engineer based in Europe.',
   url: getCurrentSiteUrl(),
   author: 'Andrei Galitianu',
   locale: 'en_US',
@@ -86,16 +86,12 @@ export const SITE_CONFIG = {
 // SEO defaults
 export const SEO_DEFAULTS = {
   ogType: 'website',
-  ogImage: '/assets/common/images/ogp_image.png',
-  twitterCard: 'summary_large_image',
 } as const;
 
 // Asset paths that respect the configured base URL
 export const PATHS = {
   images: {
-    favicon: `${getCurrentAssetsUrl()}assets/common/images/favicon`,
-    ogp: `${getCurrentAssetsUrl()}assets/common/images/ogp_image.png`,
-    appleTouchIcon: `${getCurrentAssetsUrl()}assets/common/images/apple-touch-icon.png`,
+    favicon: `${getCurrentAssetsUrl()}assets/common/images/favicon.ico`,
   },
 } as const;
 
@@ -114,18 +110,15 @@ export const DEFAULT_PAGE_META: PageMeta = {
   title: SITE_CONFIG.title,
   description: SITE_CONFIG.description,
   ogType: SEO_DEFAULTS.ogType,
-  ogImage: SEO_DEFAULTS.ogImage,
 };
 
 export const SOCIAL_LINKS = {
   twitter: 'https://twitter.com/galitianu',
-  facebook: 'https://facebook.com/galitianu',
-  instagram: 'https://instagram.com/galitianu',
-  line: 'https://line.me/ti/p/galitianu',
+  github: 'https://github.com/galitianu',
   linkedin: 'https://linkedin.com/in/galitianu',
 } as const;
 
 export const THEME_CONFIG = {
-  defaultTheme: 'light',
+  defaultTheme: 'dark',
   themeStorageKey: 'theme-preference',
 } as const;
