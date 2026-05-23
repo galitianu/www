@@ -12,30 +12,33 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Switch } from '@/components/ui/switch';
 import { useEffect, useState } from 'react';
 
+const getStoredTheme = () => {
+  if (typeof window === 'undefined') {
+    return 'system';
+  }
+
+  return localStorage.getItem('theme') || 'system';
+};
+
+const applyTheme = (selectedTheme: string) => {
+  if (selectedTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else if (selectedTheme === 'light') {
+    document.documentElement.classList.remove('dark');
+  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+};
+
 const SettingsDialog = () => {
-  const [theme, setTheme] = useState('system');
+  const [theme, setTheme] = useState(getStoredTheme);
   const [notifications, setNotifications] = useState(true);
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem('theme') || 'system';
-    setTheme(storedTheme);
-    applyTheme(storedTheme);
-  }, []);
-
-  const applyTheme = (selectedTheme: string) => {
-    if (selectedTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else if (selectedTheme === 'light') {
-      document.documentElement.classList.remove('dark');
-    } else {
-      // system
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    }
-  };
+    applyTheme(theme);
+  }, [theme]);
 
   const handleThemeChange = (value: string) => {
     setTheme(value);
@@ -63,7 +66,7 @@ const SettingsDialog = () => {
           </svg>
         </Button>
       </DialogTrigger>
-      <DialogContent className='max-h-[85dvh] overflow-y-auto pt-16 pb-8 sm:max-h-[80dvh]'>
+      <DialogContent className='max-h-[85dvh] overflow-y-auto pb-8 pt-16 sm:max-h-[80dvh]'>
         <DialogHeader>
           <DialogTitle>Preferences</DialogTitle>
           <DialogDescription>Adjust how galitianu.com behaves on your device.</DialogDescription>
@@ -100,9 +103,9 @@ const SettingsDialog = () => {
           <div className='space-y-4'>
             <h4 className='font-medium'>Version info</h4>
             <div className='text-muted-foreground text-sm'>
-              <p>Astro v5.7.5</p>
-              <p>TailwindCSS v4.1.4</p>
-              <p>React v19.1.0</p>
+              <p>Astro v6.3.7</p>
+              <p>TailwindCSS v4.3.0</p>
+              <p>React v19.2.6</p>
               <p>shadcn/ui v2.5.0</p>
             </div>
           </div>

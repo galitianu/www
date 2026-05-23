@@ -3,8 +3,6 @@ import tsPlugin from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import prettierConfig from 'eslint-config-prettier';
 import astroPlugin from 'eslint-plugin-astro';
-import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
-import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 
 export default [
@@ -38,16 +36,12 @@ export default [
     },
     plugins: {
       '@typescript-eslint': tsPlugin,
-      react: reactPlugin,
       'react-hooks': reactHooksPlugin,
-      'jsx-a11y': jsxA11yPlugin,
     },
     rules: {
       ...js.configs.recommended.rules,
       ...tsPlugin.configs.recommended.rules,
-      ...reactPlugin.configs.recommended.rules,
       ...reactHooksPlugin.configs.recommended.rules,
-      ...jsxA11yPlugin.configs.recommended.rules,
 
       // TypeScript rule tweaks
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
@@ -56,12 +50,6 @@ export default [
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-empty-interface': 'warn',
 
-      // React rule tweaks
-      'react/react-in-jsx-scope': 'off', // Not needed on React 17+
-      'react/prop-types': 'off', // Redundant with TypeScript
-      'react/jsx-uses-react': 'off',
-      'react/jsx-uses-vars': 'error',
-
       // Common rules
       'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
       'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -69,11 +57,6 @@ export default [
       'no-var': 'error',
       'object-shorthand': 'error',
       'prefer-arrow-callback': 'error',
-    },
-    settings: {
-      react: {
-        version: 'detect',
-      },
     },
   },
 
